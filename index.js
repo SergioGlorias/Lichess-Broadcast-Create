@@ -91,7 +91,7 @@ let rounds = [
 ]
 
 // ======
-const description = `${mS} ${dS} ${(dS === dE && mS === mE) ? "" : `- ${mS === mE ? "" : (mE + " ")}${dE}`}| ${roundType} | ${timeControl} time control`
+const description = `${mS} ${dS} ${(dS === dE && mS === mE) ? "" : `- ${mS === mE ? "" : (mE + " ")}${dE}`} | ${roundType} | ${timeControl} time control`
 
 let timeInfo = ""
 
