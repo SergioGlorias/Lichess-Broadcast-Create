@@ -11,83 +11,94 @@ dayjs.extend(timezone)
 const token = "lip_XXXXXXXXXXXX" //https://lichess.org/account/oauth/token/create?scopes[]=study:write
 
 // Broadcast Info
-let name = "Niteroi Chess Open 2023 Blitz"
+let name = "Carballo Open"
 
 let roundType = "9-round Swiss"
 
-let dS = "9th" 
-let mS = "September"
+let dS = "25th" 
+let mS = "August"
 
-let dE = "9th"
+let dE = "1st"
 let mE = "September"
 
-let location = "Niteroi, Brazil"
+let location = "Carballo, Spain"
 
-let timeControl = "Blitz"
-
-let timeStarted = 3
-let timeincrement = 2
+let timeControl = "Classical"
+let timeStarted = 90
+let timeincrement = 30
 let timeAfter40Moves = 0
 
-let officialWebsite = "https://www.niteroichessopen.com.br/"
-let results = "https://chess-results.com/tnr757186.aspx?lan=1"
+let officialWebsite = ""
+let results = "https://chess-results.com/tnr801739.aspx?lan=1"
 
 let autoLeaderboard = false // leaderboard
 
 //Rounds
-let tz = "America/Sao_Paulo" //timezone
+let tz = "Europe/Lisbon" //timezone
 
 let d = 0 //delay for transmission
 
 let isLCC = true    //if broadcast is URL LCC
 let ifLCCurlIs = "" // URL LCC
 
+const urlfn = (num) => ``
+
 let rounds = [
     {
         name: "Round 1",
-        syncUrl: isLCC ? ifLCCurlIs : "",
-        startsAt: dayjs.tz("2023-09-09 14:00", tz).valueOf(),
+        syncUrl: isLCC ? ifLCCurlIs : urlfn(1),
+        startsAt: dayjs.tz("2023-08-25 16:00", tz).valueOf(),
     },
     {
         name: "Round 2",
-        syncUrl: isLCC ? ifLCCurlIs : "",
-        startsAt: dayjs.tz("2023-09-09 14:15", tz).valueOf(),
+        syncUrl: isLCC ? ifLCCurlIs : urlfn(2),
+        startsAt: dayjs.tz("2023-08-26 16:00", tz).valueOf(),
     },
     {
         name: "Round 3",
-        syncUrl: isLCC ? ifLCCurlIs : "",
-        startsAt: dayjs.tz("2023-09-09 14:30", tz).valueOf(),
+        syncUrl: isLCC ? ifLCCurlIs : urlfn(3),
+        startsAt: dayjs.tz("2023-08-27 09:00", tz).valueOf(),
     },
     {
         name: "Round 4",
-        syncUrl: isLCC ? ifLCCurlIs : "",
-        startsAt: dayjs.tz("2023-09-09 14:45", tz).valueOf(),
+        syncUrl: isLCC ? ifLCCurlIs : urlfn(4),
+        startsAt: dayjs.tz("2023-08-27 16:00", tz).valueOf(),
     },
     {
         name: "Round 5",
-        syncUrl: isLCC ? ifLCCurlIs : "",
-        startsAt: dayjs.tz("2023-09-09 15:00", tz).valueOf(),
+        syncUrl: isLCC ? ifLCCurlIs : urlfn(5),
+        startsAt: dayjs.tz("2023-08-28 16:00", tz).valueOf(),
     },
     {
         name: "Round 6",
-        syncUrl: isLCC ? ifLCCurlIs : "",
-        startsAt: dayjs.tz("2023-09-09 15:15", tz).valueOf(),
+        syncUrl: isLCC ? ifLCCurlIs : urlfn(6),
+        startsAt: dayjs.tz("2023-08-29 16:00", tz).valueOf(),
     },
     {
         name: "Round 7",
-        syncUrl: isLCC ? ifLCCurlIs : "",
-        startsAt: dayjs.tz("2023-09-09 15:30", tz).valueOf(),
+        syncUrl: isLCC ? ifLCCurlIs : urlfn(7),
+        startsAt: dayjs.tz("2023-08-30 16:00", tz).valueOf(),
     },
     {
         name: "Round 8",
-        syncUrl: isLCC ? ifLCCurlIs : "",
-        startsAt: dayjs.tz("2023-09-09 15:45", tz).valueOf(),
+        syncUrl: isLCC ? ifLCCurlIs : urlfn(8),
+        startsAt: dayjs.tz("2023-08-31 16:00", tz).valueOf(),
     },
     {
         name: "Round 9",
-        syncUrl: isLCC ? ifLCCurlIs : "",
-        startsAt: dayjs.tz("2023-09-09 16:00", tz).valueOf(),
+        syncUrl: isLCC ? ifLCCurlIs : urlfn(9),
+        startsAt: dayjs.tz("2023-09-01 15:00", tz).valueOf(),
     },
+/*    {
+        name: "Round 10",
+        syncUrl: isLCC ? ifLCCurlIs : "",
+        startsAt: dayjs.tz("2023-08-25 15:00", tz).valueOf(),
+    },
+    {
+        name: "Round 11",
+        syncUrl: isLCC ? ifLCCurlIs : "",
+        startsAt: dayjs.tz("2023-08-26 09:30", tz).valueOf(),
+    },*/
 ]
 
 // ======
