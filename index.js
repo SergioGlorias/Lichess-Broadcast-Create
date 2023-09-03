@@ -107,11 +107,11 @@ const description = `${mS} ${dS} ${(dS === dE && mS === mE) ? "" : `- ${mS === m
 let timeInfo = ""
 
 if (timeAfter40Moves === 0) timeInfo = `Time control is ${timeStarted} minutes for the entire game, with a ${timeincrement}-second increment from move one.`
-else timeInfo = `Time control is ${timeStarted} minutes for 40 moves, fallowed by ${timeAfter40Moves} minutes for the rest of the game with a ${timeincrement}-second increment beginning from move one.`
+else timeInfo = `Time control is ${timeStarted} minutes for 40 moves, followed by ${timeAfter40Moves} minutes for the rest of the game with a ${timeincrement}-second increment beginning from move one.`
 
 
 let markdown =
-`The ${name} is ${roundType}, held from the ${dS} ${mS === mE ? "" : `of ${mS} `}${(dS === dE && mS === mE) ? "" : `to the ${dE} `}of ${mE} in ${location}.
+`The ${name} is a ${roundType}, held from the ${dS} ${mS === mE ? "" : `of ${mS} `}${(dS === dE && mS === mE) ? "" : `to the ${dE} `}of ${mE} in ${location}.
 
 ${timeInfo}
 
