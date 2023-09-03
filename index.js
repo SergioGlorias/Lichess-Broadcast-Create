@@ -8,33 +8,47 @@ dayjs.extend(timezone)
 
 // Token
 
-const token = "lip_XXXXXXXXXXXX" //https://lichess.org/account/oauth/token/create?scopes[]=study:write
+const token = "lip_n1z9VRI7qUfn80DomT1X" //https://lichess.org/account/oauth/token/create?scopes[]=study:write
 
 // Broadcast Info
-let name = "Carballo Open"
+let name = "European Youth Chess Championships | u18"
 
 let roundType = "9-round Swiss"
 
-let dS = "25th" 
-let mS = "August"
+let dS = "5th"
+let mS = "September"
 
-let dE = "1st"
+let dE = "14th"
 let mE = "September"
 
-let location = "Carballo, Spain"
+let location = "Constanța, Romania"
 
 let timeControl = "Classical"
 let timeStarted = 90
 let timeincrement = 30
 let timeAfter40Moves = 0
 
-let officialWebsite = ""
-let results = "https://chess-results.com/tnr801739.aspx?lan=1"
+let officialWebsite = "https://euromamaia2023.com/"
+
+let isMoreResults = true
+
+let resultsOne = ""
+
+let resultsMore = [
+    {
+        name: "Results (Open u18)",
+        link: "https://chess-results.com/tnr793415.aspx?lan=1"
+    },
+    {
+        name: "Results (Girls u18)",
+        link: "https://chess-results.com/tnr793422.aspx?lan=1"
+    },
+]
 
 let autoLeaderboard = false // leaderboard
 
 //Rounds
-let tz = "Europe/Lisbon" //timezone
+let tz = "Europe/Bucharest" //timezone
 
 let d = 0 //delay for transmission
 
@@ -47,57 +61,57 @@ let rounds = [
     {
         name: "Round 1",
         syncUrl: isLCC ? ifLCCurlIs : urlfn(1),
-        startsAt: dayjs.tz("2023-08-25 16:00", tz).valueOf(),
+        startsAt: dayjs.tz("2023-09-05 15:00", tz).valueOf(),
     },
     {
         name: "Round 2",
         syncUrl: isLCC ? ifLCCurlIs : urlfn(2),
-        startsAt: dayjs.tz("2023-08-26 16:00", tz).valueOf(),
+        startsAt: dayjs.tz("2023-09-06 15:00", tz).valueOf(),
     },
     {
         name: "Round 3",
         syncUrl: isLCC ? ifLCCurlIs : urlfn(3),
-        startsAt: dayjs.tz("2023-08-27 09:00", tz).valueOf(),
+        startsAt: dayjs.tz("2023-09-07 15:00", tz).valueOf(),
     },
     {
         name: "Round 4",
         syncUrl: isLCC ? ifLCCurlIs : urlfn(4),
-        startsAt: dayjs.tz("2023-08-27 16:00", tz).valueOf(),
+        startsAt: dayjs.tz("2023-09-08 15:00", tz).valueOf(),
     },
     {
         name: "Round 5",
         syncUrl: isLCC ? ifLCCurlIs : urlfn(5),
-        startsAt: dayjs.tz("2023-08-28 16:00", tz).valueOf(),
+        startsAt: dayjs.tz("2023-09-09 10:30", tz).valueOf(),
     },
     {
         name: "Round 6",
         syncUrl: isLCC ? ifLCCurlIs : urlfn(6),
-        startsAt: dayjs.tz("2023-08-29 16:00", tz).valueOf(),
+        startsAt: dayjs.tz("2023-09-11 15:00", tz).valueOf(),
     },
     {
         name: "Round 7",
         syncUrl: isLCC ? ifLCCurlIs : urlfn(7),
-        startsAt: dayjs.tz("2023-08-30 16:00", tz).valueOf(),
+        startsAt: dayjs.tz("2023-09-12 15:00", tz).valueOf(),
     },
     {
         name: "Round 8",
         syncUrl: isLCC ? ifLCCurlIs : urlfn(8),
-        startsAt: dayjs.tz("2023-08-31 16:00", tz).valueOf(),
+        startsAt: dayjs.tz("2023-09-13 15:00", tz).valueOf(),
     },
     {
         name: "Round 9",
         syncUrl: isLCC ? ifLCCurlIs : urlfn(9),
-        startsAt: dayjs.tz("2023-09-01 15:00", tz).valueOf(),
+        startsAt: dayjs.tz("2023-09-14 13:00", tz).valueOf(),
     },
 /*    {
         name: "Round 10",
         syncUrl: isLCC ? ifLCCurlIs : "",
-        startsAt: dayjs.tz("2023-08-25 15:00", tz).valueOf(),
+        startsAt: dayjs.tz("2023-09-25 15:00", tz).valueOf(),
     },
     {
         name: "Round 11",
         syncUrl: isLCC ? ifLCCurlIs : "",
-        startsAt: dayjs.tz("2023-08-26 09:30", tz).valueOf(),
+        startsAt: dayjs.tz("2023-09-26 09:30", tz).valueOf(),
     },*/
 ]
 
@@ -115,7 +129,7 @@ let markdown =
 
 ${timeInfo}
 
-${officialWebsite === "" ? "" : `[Official Website](${officialWebsite}) | `}[Results](${results})`
+${officialWebsite === "" ? "" : `[Official Website](${officialWebsite}) | `}${isMoreResults ? resultsMore.map(x => `[${x.name}](${x.link})`).join(" | ") : `[Results](${resultsOne})`}`
 
 
 async function run() {
