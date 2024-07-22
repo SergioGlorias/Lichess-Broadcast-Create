@@ -8,7 +8,7 @@ dayjs.extend(timezone)
 
 // Token
 
-const token = "lip_n1z9VRI7qUfn80DomT1X" //https://lichess.org/account/oauth/token/create?scopes[]=study:write
+const token = "" //https://lichess.org/account/oauth/token/create?scopes[]=study:write
 
 // Broadcast Info
 let name = "European Youth Chess Championships | u18"
