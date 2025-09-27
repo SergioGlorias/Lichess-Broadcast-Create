@@ -4,6 +4,7 @@
     "ghcr.io/devcontainers/features/node:1": {
       "version": "latest",
       "installYarnUsingApt": false
-    }
+    },
+    "ghcr.io/devcontainers/features/github-cli:1": {}
   }
 }
