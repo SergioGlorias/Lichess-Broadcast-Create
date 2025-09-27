@@ -5,12 +5,13 @@ if (!LichessToken) {
 
 import { parsePgn } from "chessops/pgn";
 
-const broadcastId = "wvwxq0CF"; // replace with your broadcast ID
+const broadcastId = "UByrrEx3"; // replace with your broadcast ID
 
 const run = async () => {
     const pgn = await fetch(`https://lichess.org/api/broadcast/${broadcastId}.pgn`, {
         headers: {
             Authorization: `Bearer ${LichessToken}`,
+            "User-Agent": "Cleanup Unplayed Games Script",
         },
     })
         .then(res => res.text())
@@ -39,6 +40,7 @@ const run = async () => {
             headers: {
                 Authorization: `Bearer ${LichessToken}`,
                 "Content-Type": "application/x-www-form-urlencoded",
+                "User-Agent": "Cleanup Unplayed Games Script",
             },
             body: `pgn=${encodeURIComponent(TerminationTagEmpty)}`,
         })
