@@ -5,7 +5,7 @@ if (!LichessToken) {
 
 import { parsePgn } from "chessops/pgn";
 
-const broadcastId = "UByrrEx3"; // replace with your broadcast ID
+const broadcastId = "Y9YjcDKG"; // replace with your broadcast ID
 
 const run = async () => {
     const pgn = await fetch(`https://lichess.org/api/broadcast/${broadcastId}.pgn`, {
