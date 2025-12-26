@@ -1,15 +1,15 @@
 import * as cheerio from 'cheerio';
 import { parsePgn } from "chessops/pgn";
 
-const CRRoundLink = "https://s2.chess-results.com/tnr1234778.aspx?lan=1&art=2&rd=8" // replace with your chess-results.com round link
+const CRRoundLink = "https://s2.chess-results.com/tnr1313074.aspx?lan=1&art=2&rd=3" // replace with your chess-results.com round link
 const LichessToken = process.env.LICHESS_TOKEN;
 if (!LichessToken) {
     throw new Error("Missing LICHESS_TOKEN environment variable");
 }
 
-const roundId = "PaXSD7jE" // replace with your round ID
+const roundId = "7LGk7bfa" // replace with your round ID
 
-const normalize = str => str.trim().toLowerCase().replaceAll(",", "").replaceAll(/\s+/g, ' ');
+const normalize = str => str.replaceAll("*)","").trim().toLowerCase().replaceAll(",", "").replaceAll(/\s/g, '').replaceAll(".","");
 
 const run = async () => {
     const pgn = await fetch(`https://lichess.org/broadcast/-/-/${roundId}.pgn`, {
