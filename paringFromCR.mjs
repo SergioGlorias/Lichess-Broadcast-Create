@@ -11,7 +11,7 @@ const CRRoundLinks = [
   }, // Women Blitz
 ];
 
-const roundId = "obyyxuDX"; // replace with your round ID
+const roundId = "QQJkEzGd"; // replace with your round ID
 
 const LichessToken = process.env.LICHESS_TOKEN;
 
@@ -44,8 +44,8 @@ const run = async () => {
     table.slice(1, slice).each((_, row) => {
       const cells = $(row).find("td");
       paringsSection.push({
-        white: $(cells[whiteIndex]).text().trim(),
-        black: $(cells[blackIndex]).text().trim(),
+        white: $(cells[whiteIndex]).text().replaceAll(/\s+/g, " ").replaceAll("*)", "").trim(),
+        black: $(cells[blackIndex]).text().replaceAll(/\s+/g, " ").replaceAll("*)", "").trim(),
       });
     });
     parings.push(paringsSection);
@@ -83,3 +83,8 @@ const run = async () => {
   
   console.log("Parings updated successfully on Lichess.");
 };
+
+run().catch((error) => {
+  console.error("Error:", error);
+  process.exit(1);
+});
