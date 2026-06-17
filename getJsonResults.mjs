@@ -9,7 +9,7 @@ if (!LichessToken) {
   throw new Error("Missing LICHESS_TOKEN environment variable");
 }
 
-const roundId = "hNNTqJH1"; // replace with your round ID
+const roundId = "kuK7YFI1"; // replace with your round ID
 
 const normalize = (str) =>
   str
@@ -66,10 +66,11 @@ const run = async () => {
     return !Object.values(r).some((v) => v.includes("Bo."));
   });
   const resultsMap = onlyGames.reduce((map, r) => {
+    const board = r[Object.keys(r)[0]].split(".")[1].trim();
     const white = normalize(r[Object.keys(r)[2]]);
     const black = normalize(r[Object.keys(r)[6]]);
     const result = r[Object.keys(r)[8]];
-    const resultMap = {
+    const resultMapWhite = {
         "1 - 0": "1-0",
         "+ - -": "1-0",
         "0 - 1": "0-1",
@@ -77,8 +78,20 @@ const run = async () => {
         "½ - ½": "1/2-1/2",
         "- - -": "0-0",
       };
-    map.set(`${white}|${black}`, resultMap[result]);
-    map.set(`${black}|${white}`, resultMap[result]);
+    const resultMapBlack = {
+        "1 - 0": "0-1",
+        "+ - -": "0-1",
+        "0 - 1": "1-0",
+        "- - +": "1-0",
+        "½ - ½": "1/2-1/2",
+        "- - -": "0-0",
+      };
+   
+      // if board odd number is white, else black
+    parseInt(board) % 2 === 1 
+      ? map.set(`${white}|${black}`, resultMapWhite[result])
+      : map.set(`${black}|${white}`, resultMapBlack[result]);
+    
     return map;
   }, new Map());
 
