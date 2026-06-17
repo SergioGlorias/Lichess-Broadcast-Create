@@ -2,13 +2,13 @@ import * as cheerio from "cheerio";
 import { parsePgn } from "chessops/pgn";
 
 const CRRoundLink =
-  "https://s2.chess-results.com/tnr1313076.aspx?lan=1&art=2&rd=13"; // replace with your chess-results.com round link
+  "https://s2.chess-results.com/tnr1435703.aspx?lan=1&art=3&rd=1"; // replace with your chess-results.com round link
 const LichessToken = process.env.LICHESS_TOKEN;
 if (!LichessToken) {
   throw new Error("Missing LICHESS_TOKEN environment variable");
 }
 
-const roundId = "GqSsrmqA"; // replace with your round ID
+const roundId = "hNNTqJH1"; // replace with your round ID
 
 const normalize = (str) =>
   str
